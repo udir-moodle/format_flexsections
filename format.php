@@ -24,8 +24,8 @@
 
 defined('MOODLE_INTERNAL') || die();
 
-require_once($CFG->libdir . '/filelib.php');
-require_once($CFG->libdir . '/completionlib.php');
+require_once($CFG->libdir.'/filelib.php');
+require_once($CFG->libdir.'/completionlib.php');
 
 // Retrieve course format option fields and add them to the $course object.
 /** @var format_flexsections $format */
@@ -39,7 +39,7 @@ course_create_sections_if_missing($course, 0);
 $renderer = $PAGE->get_renderer('format_flexsections');
 
 if (!empty($displaysection)) {
-    $format->set_section_number($displaysection);
+    $format->set_sectionnum($displaysection);
 }
 $outputclass = $format->get_output_classname('content');
 $widget = new $outputclass($format);

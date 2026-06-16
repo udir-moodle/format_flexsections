@@ -84,7 +84,7 @@ Feature: Collapsing and expanding sections in flexsections format
     And I should not see "t121" in the "region-main" "region"
     And I should not see "t210" in the "region-main" "region"
     # Expand the second section, the first section will be collapsed, the general section will stay expanded
-    And I click on ".course-section-header[data-number=6] a[data-toggle=collapse]" "css_element"
+    And I click on ".course-section-header[data-number=6] a[data-bs-toggle=collapse]" "css_element"
     And I should see "Page in General section" in the "region-main" "region"
     And I should not see "Page in first section" in the "region-main" "region"
     And I should not see "t111" in the "region-main" "region"
@@ -92,13 +92,12 @@ Feature: Collapsing and expanding sections in flexsections format
     And I should see "t220" in the "region-main" "region"
     And I should not see "t211" in the "region-main" "region"
     # Expand the first subsection of the second section
-    And I click on ".course-section-header[data-number=7] a[data-toggle=collapse]" "css_element"
+    And I click on ".course-section-header[data-number=7] a[data-bs-toggle=collapse]" "css_element"
     And I should see "Page in General section" in the "region-main" "region"
     And I should not see "Page in first section" in the "region-main" "region"
     And I should see "t211" in the "region-main" "region"
     # Collapse all will collapse all sections except for general
-    # Use JS click to avoid the fixed-top navbar intercepting the click.
-    And I click on "//div[contains(@id,'region-main')]//a[@id='collapsesections']" "xpath_element" skipping visibility check
+    And I click on "Collapse all" "link" in the "region-main" "region"
     And I should see "Page in General section" in the "region-main" "region"
     And I should not see "Page in first section" in the "region-main" "region"
     And I should not see "t110" in the "region-main" "region"
@@ -123,7 +122,7 @@ Feature: Collapsing and expanding sections in flexsections format
     And I should see "Page in General section" in the "region-main" "region"
     And I should not see "Page in first section" in the "region-main" "region"
     # Expand first section, the general section will be collapsed
-    And I click on ".course-section-header[data-number=1] a[data-toggle=collapse]" "css_element"
+    And I click on ".course-section-header[data-number=1] a[data-bs-toggle=collapse]" "css_element"
     And I should not see "Page in General section" in the "region-main" "region"
     And I should see "Page in first section" in the "region-main" "region"
     And I should see "t110" in the "region-main" "region"
@@ -131,7 +130,7 @@ Feature: Collapsing and expanding sections in flexsections format
     And I should not see "t121" in the "region-main" "region"
     And I should not see "t210" in the "region-main" "region"
     # Expand General section, all others will be collapsed
-    And I click on ".course-section-header[data-number=0] a[data-toggle=collapse]" "css_element"
+    And I click on ".course-section-header[data-number=0] a[data-bs-toggle=collapse]" "css_element"
     And I should not see "t110" in the "region-main" "region"
     And I should not see "t210" in the "region-main" "region"
     And I should see "Page in General section" in the "region-main" "region"
@@ -183,7 +182,7 @@ Feature: Collapsing and expanding sections in flexsections format
     And I should see "t311" in the "region-main" "region"
     And I should not see "t321" in the "region-main" "region"
     # Expand section t320, section t310 will be collapsed
-    And I click on ".course-section-header[data-number=14] a[data-toggle=collapse]" "css_element"
+    And I click on ".course-section-header[data-number=14] a[data-bs-toggle=collapse]" "css_element"
     And I should see "Page in t300 section" in the "region-main" "region"
     And I should not see "Page in t310 section" in the "region-main" "region"
     And I should not see "t311" in the "region-main" "region"

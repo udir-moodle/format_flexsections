@@ -37,6 +37,7 @@ use stdClass;
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 class controlmenu extends \core_courseformat\output\local\content\cm\controlmenu {
+
     /** @var \format_flexsections the course format */
     protected $format;
 
@@ -53,7 +54,7 @@ class controlmenu extends \core_courseformat\output\local\content\cm\controlmenu
         $actions = parent::cm_control_items();
 
         $baseurl = new moodle_url('/course/mod.php', ['sesskey' => sesskey()]);
-        $sr = $this->format->get_section_number();
+        $sr = (int)$this->format->get_sectionnum();
         $mod = $this->mod;
 
         if ($sr !== null) {

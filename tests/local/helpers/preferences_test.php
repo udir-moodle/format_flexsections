@@ -27,6 +27,7 @@ use format_flexsections;
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  */
 final class preferences_test extends \advanced_testcase {
+
     public function setUp(): void {
         global $CFG;
         require_once($CFG->dirroot . '/course/lib.php');
@@ -84,10 +85,8 @@ final class preferences_test extends \advanced_testcase {
     public function test_set_sections_preference(): void {
         $this->resetAfterTest();
         $generator = $this->getDataGenerator();
-        $course = $generator->create_course(
-            ['numsections' => 200, 'format' => 'flexsections'],
-            ['createsections' => true]
-        );
+        $course = $generator->create_course(['numsections' => 200, 'format' => 'flexsections'],
+            ['createsections' => true]);
         $user = $generator->create_and_enrol($course, 'student');
 
         $format = course_get_format($course);
@@ -111,10 +110,8 @@ final class preferences_test extends \advanced_testcase {
 
     public function test_add_section_preference_ids(): void {
         $this->resetAfterTest();
-        $course = $this->getDataGenerator()->create_course(
-            ['numsections' => 200, 'format' => 'flexsections'],
-            ['createsections' => true]
-        );
+        $course = $this->getDataGenerator()->create_course(['numsections' => 200, 'format' => 'flexsections'],
+            ['createsections' => true]);
         $user = $this->getDataGenerator()->create_and_enrol($course);
         $this->setUser($user);
 
@@ -137,10 +134,8 @@ final class preferences_test extends \advanced_testcase {
 
     public function test_add_section_preference_ids_long(): void {
         $this->resetAfterTest();
-        $course = $this->getDataGenerator()->create_course(
-            ['numsections' => 500, 'format' => 'flexsections'],
-            ['createsections' => true]
-        );
+        $course = $this->getDataGenerator()->create_course(['numsections' => 500, 'format' => 'flexsections'],
+            ['createsections' => true]);
         $user = $this->getDataGenerator()->create_and_enrol($course);
         $this->setUser($user);
 
@@ -164,10 +159,8 @@ final class preferences_test extends \advanced_testcase {
         $this->resetAfterTest();
         // Create initial data.
         $generator = $this->getDataGenerator();
-        $course = $generator->create_course(
-            ['numsections' => 200, 'format' => 'flexsections'],
-            ['createsections' => true]
-        );
+        $course = $generator->create_course(['numsections' => 200, 'format' => 'flexsections'],
+            ['createsections' => true]);
         $user = $generator->create_and_enrol($course);
         // Get the course format.
         $format = course_get_format($course);
